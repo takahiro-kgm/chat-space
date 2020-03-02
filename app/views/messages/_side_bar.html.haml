@@ -1,0 +1,20 @@
+.side-bar
+  .side-bar__user-name
+    .top-items
+      .top-items__name
+        nozaki
+      .top-items__icons
+        = link_to "#", class: "top-items__icons--btn" do
+          = icon('far', 'edit', class: 'top-icon')
+        = link_to "#", class: "top-items__icons--btn" do
+          = icon('fa', 'cog', class: 'top-icon')
+  .side-bar__group-list
+    .side-bar__group-list--group-content
+      .group-name グループ1
+      .latest-message 最新メッセージ
+    .side-bar__group-list--group-content
+      .group-name グループ2長めのグループ名にするととうなるか検証
+      .latest-message 最新メッセージ2長めの最新メッセージが入るとどうなるか検証
+    .side-bar__group-list--group-content
+      .group-name グループ3
+      .latest-message 最新メッセージ3

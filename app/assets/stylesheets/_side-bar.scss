@@ -1,0 +1,60 @@
+@import "space-between";
+@import "baseWhite";
+
+.side-bar {
+  height: 100vh;
+  width: 300px;
+  background-color: #253141;
+  float: left;
+  &__user-name {
+    height: 100px;
+    width: 100%;
+    background-color: #253141;
+    display: flex;
+    align-items: center;
+  }
+  .top-items {
+    @include space-between;
+    height: 20px;
+    width: 260px;
+    margin: 0 20px;
+    &__name {
+      line-height: 20px;
+      color: $baseWhite;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &__icons {
+      height: 20px;
+      width: 60px;
+      line-height: 20px;
+      text-align: right;
+      &--btn {
+        text-decoration: none;
+      }
+      .top-icon {
+        color: $baseWhite;
+        margin-left: 5px;
+      }
+    }
+  }
+  &__group-list {
+    height: calc( 100vh - 100px);
+    width: 100%;
+    background-color: #2f3e51;
+    &--group-content {
+      padding: 20px 20px 40px 20px;
+      .group-name {
+        font-size: 15px;
+        font-weight: bold;
+        color: $baseWhite;
+        margin-bottom: 5px;
+      }
+      .latest-message {
+        font-size: 11px;
+        font-weight: bold;
+        color: $baseWhite;
+      }
+    }
+  }
+}
