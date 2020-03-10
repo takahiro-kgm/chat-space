@@ -1,47 +1,25 @@
 .main-chat
   .main-chat__group-info
     .main-chat__group-info--leftbox
-      .current-group group1
-      %ul.member-list 
-        Member : 
-        %li.member-first
-          nozaki
-        %li.member-second
-          suzuki
-        %li.member-third
-          yamamoto
-    %a.main-chat__group-info--edit-btn{ href: '#' } Edit
+      .current-group
+        = @group.name
+        %ul.member-list 
+          Member : 
+          %li.member-first
+            - @group.users.each do |user|
+              = user.name
+    .main-chat__group-info--edit-btn
+      = link_to 'Edit', edit_group_path(@group), class: "EditLink"
   .main-chat__message-list
-    .message-box.first
-      .message-box__message-info
-        .message-box__message-info--username
-          nozaki
-        .message-box__message-info--date-time
-          2020/02/27(Thu) 10:25:22
-      .message-box__sent-message
-        おはようございます！
-    .message-box
-      .message-box__message-info
-        .message-box__message-info--username
-          suzuki
-        .message-box__message-info--date-time
-          2020/02/27(Thu) 11:28:31
-      .message-box__sent-message
-        おはようー！
-    .message-box
-      .message-box__message-info
-        .message-box__message-info--username
-          shin
-        .message-box__message-info--date-time
-          2020/02/28(Fri) 22:10:01
-      .message-box__sent-message
-        こんばんは。
+    = render @messages
   .main-chat__message-form
-    %form.create-box{ action: "/", method: "post" }
-      .create-box__contents
-        %input.create-box__contents--message{ type: "text", placeholder: "type a message" }
-        %label{class: "create-box__contents--image"}
-          %p.file-choice
-            = icon('fas', 'image', class: "file-choice__icon")
-            %input{type: "file"}
-      %input.send-btn{type: "submit", value: "Send"}
+    .create-box
+      = form_for [@group, @message] do |f|
+        .create-box__contents
+          = f.text_field :body, class: 'create-box__contents--message', placeholder: 'type a message'
+          = f.label :image, class: 'create-box__contents--image' do
+            %p.file-choice
+              = icon('fas', 'image', class: "file-choice__icon")
+              %input
+                = f.file_field :image
+        = f.submit 'Send', class: 'send-btn'
