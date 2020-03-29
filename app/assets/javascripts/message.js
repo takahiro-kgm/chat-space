@@ -2,50 +2,50 @@ $(function(){
 
   var buildHTML = function(message) {
     if (message.body && message.image) {
-      var html = `<div class="message-box first" data-message-id=` + message.id + `>` +
-        `<div class="message-box__message-info">` +
-          `<div class="message-box__message-info--username">` +
-            message.user_name +
-          `</div>` +
-          `<div class="message-box__message-info--date-time">` +
-            message.created_at +
-          `</div>` +
-        `</div>` +
-        `<div class="message-box__sent-message">` +
-          `<p class="message-box__sent-message__body">` +
-            message.body +
-          `</p>` +
-        `</div>` +
-        `<img src="` + message.image + `">` +
-      `</div>`
+      var html = `<div class="message-box first" data-message-id=${message.id}>
+        <div class="message-box__message-info">
+          <div class="message-box__message-info--username">
+            ${message.user_name}
+          </div>
+          <div class="message-box__message-info--date-time">
+            ${message.created_at}
+          </div>
+        </div>
+        <div class="message-box__sent-message">
+          <p class="message-box__sent-message__body">
+            ${message.body}
+          </p>
+        </div>
+        <img src="${message.image}">
+      </div>`
     } else if (message.body) {
-      var html = `<div class="message-box first" data-message-id=` + message.id + `>` +
-        `<div class="message-box__message-info">` +
-          `<div class="message-box__message-info--username">` +
-            message.user_name +
-          `</div>` +
-          `<div class="message-box__message-info--date-time">` +
-            message.created_at +
-          `</div>` +
-        `</div>` +
-        `<div class="message-box__sent-message">` +
-          `<p class="message-box__sent-message__body">` +
-            message.body +
-          `</p>` +
-        `</div>` +
-      `</div>`
+      var html = `<div class="message-box first" data-message-id=${message.id}>
+        <div class="message-box__message-info">
+          <div class="message-box__message-info--username">
+            ${message.user_name}
+          </div>
+          <div class="message-box__message-info--date-time">
+            ${message.created_at}
+          </div>
+        </div>
+        <div class="message-box__sent-message">
+          <p class="message-box__sent-message__body">
+            ${message.body}
+          </p>
+        </div>
+      </div>`
     } else if (message.image) {
-      var html = `<div class="message-box first" data-message-id=` + message.id + `>` +
-        `<div class="message-box__message-info">` +
-          `<div class="message-box__message-info--username">` +
-            message.user_name +
-          `</div>` +
-          `<div class="message-box__message-info--date-time">` +
-            message.created_at +
-          `</div>` +
-        `</div>` +
-        `<img src="` + message.image + `">` +
-      `</div>`
+      var html = `<div class="message-box first" data-message-id=${message.id}>
+        <div class="message-box__message-info">
+          <div class="message-box__message-info--username">
+            ${message.user_name}
+          </div>
+          <div class="message-box__message-info--date-time">
+            ${message.created_at}
+          </div>
+        </div>
+        <img src="${message.image}">
+      </div>`
     };
     return html;
   };
