@@ -43,6 +43,7 @@
       a:active { color:#38aef0; text-decoration: none;}
       .EditLink {
         text-decoration: none;
+        color: #38aef0;
       }
     }
   }
@@ -127,14 +128,13 @@
         }
       }
       .send-btn {
-        background-color: skyblue;
+        background-color: #38aef0;
         color: $baseWhite;
         font-size: 16px;
-        font-weight: bold;
         height: 100%;
         width: 100px;
         margin-left: 15px;
-        padding: 0 32px;
+        padding: 0 30px;
       }
     }
   }
